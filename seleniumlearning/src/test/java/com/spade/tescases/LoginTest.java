@@ -1,14 +1,20 @@
 package com.spade.tescases;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
+
+import com.google.common.io.Files;
+import com.spade.utility.Testutility;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,49 +33,34 @@ public class LoginTest {
 	
 
 
-	  @BeforeTest
-	  public void Openbrowser() {
-		    
-		  System.setProperty("webdriver.chrome.driver", "C:\\Ankit-WorkArea\\SeleniumWorkSpace\\seleniumlearning\\chromedriver.exe");
-		  driver=new ChromeDriver();
-		  driver.manage().window().maximize();
-		  driver.manage().deleteAllCookies();
-		  //implicit wait
-		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		  driver.get("http://192.168.11.125:8039/MotorInsuranceApp/#/Login");
-		  System.out.println();
-		    
-	  }
 
-	  
-	  @AfterTest
-	  public void closebrowser() throws InterruptedException {
-		
-		  Thread.sleep(5000);
-		//  driver.quit();
-		 
-	  }
-
-	
-	
 	
   @Test(priority=1)
-  public void loginintotheApplication() {
-	  
+  public void loginintotheApplication() throws IOException {
+	  System.setProperty("webdriver.chrome.driver", ".\\chromedriver.exe");
+	  driver=new ChromeDriver();
+	  driver.manage().window().maximize();
+	  driver.manage().deleteAllCookies();
+	  //implicit wait
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  driver.get("http://192.168.11.125:8039/MotorInsuranceApp/#/Login");
+	  System.out.println();
 	  driver.findElement(By.id("username")).clear();
 	  driver.findElement(By.id("username")).sendKeys("aa");
 	  driver.findElement(By.id("Password")).clear();
 	  driver.findElement(By.id("Password")).sendKeys("aa");
+	  
 	  driver.findElement(By.id("loginButtonid")).click();
 	  
 	  
   }
   
   @Test(priority=2)
-  public void  verify_homepagetitle() {
+  public void  verify_homepagetitle() throws IOException {
 	String Actualtitle=  driver.getTitle();
 	String expected="Motor Claim";
-	  
+	
+  
 //Assert.assertEquals(Actualtitle, expected);
 Assert.assertEquals(Actualtitle, expected, "title mismatch");
 	  
@@ -85,7 +76,7 @@ if(Actualtitle.equals(expected)) {
  
   
   @Test(priority=3)
-  public void verify_Homepageurl() throws InterruptedException {
+  public void verify_Homepageurl() throws InterruptedException, IOException {
 
 	  Thread.sleep(2000);
 	  
@@ -100,7 +91,11 @@ if(Actualtitle.equals(expected)) {
 	 // Assert.assertEquals(Actualurl, expectedurl, "title mismatch");
 	  	  
 	  System.out.println("title matched");
-
+// to take screeshot
+		File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		  File dest=new File(".\\src\\main\\java\\com\\spade\\screenshots\\screeshot1.png");
+		 Files.copy(src, dest);
+		 
 	  //alternate way to compare
 	  if(Actualurl.equals(expectedurl)) {
 	  	
@@ -108,10 +103,12 @@ if(Actualtitle.equals(expected)) {
 	  	
 	  }  
 	  
+		
 
   }
+  
   @Test(priority=4)
-  public void verify_registration() throws InterruptedException {
+  public void TC_verify_registration() throws InterruptedException {
 	  WebDriverWait wait = new WebDriverWait(driver, 60);
 	  Thread.sleep(4000);
 	  driver.findElement(By.id("Registration-link")).click();
@@ -162,7 +159,7 @@ if(Actualtitle.equals(expected)) {
      Thread.sleep(2000);
      element.sendKeys(Keys.ENTER);
       driver.findElement(By.id("CLAIMANT_NAME")).sendKeys("anit");
-      
+   
 //Accident City      Code 1 
       // driver.findElement(By.xpath("//span[@aria-owns='accCityDropDown_listbox']")).click();
    // Thread.sleep(2000);
@@ -183,6 +180,14 @@ if(Actualtitle.equals(expected)) {
       element=driver.findElement(By.name("birthday_day"));
       Select day=new Select(element);
       day.selectByIndex(2);*/
+      
+      
+System.out.println(driver.findElement(By.xpath("//span[@class='k-numeric-wrap k-state-default']/input[1]")).isDisplayed());      
+      
+  driver.findElement(By.xpath("//span[@class='k-numeric-wrap k-state-default']/input[1]")).sendKeys("1234");
+      
+      
+      
       
   }
 

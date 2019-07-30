@@ -1,6 +1,13 @@
 package com.spade.utility;
 
-public class Testutility {
+import java.io.File;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import com.google.common.io.Files;
+
+public class Testutility   {
 
 	
 	public static void main(String[] args) {
@@ -12,9 +19,9 @@ public class Testutility {
 	
 		
 		
-		public static void takescreeshot() {
+		public static void takescreeshot(String filename) {
 			
-		//	System.out.println("a"+a);
+
 			
 			}
 
