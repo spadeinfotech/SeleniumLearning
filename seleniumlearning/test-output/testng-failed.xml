@@ -5,7 +5,7 @@
     <classes>
       <class name="com.spade.tescases.LoginTest">
         <methods>
-          <include name="verify_registration"/>
+          <include name="Readandwritefile"/>
         </methods>
       </class> <!-- com.spade.tescases.LoginTest -->
     </classes>

@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="34155" started-at="2019-07-30T10:14:35Z" finished-at="2019-07-30T10:15:09Z">
+  <suite name="Default suite" duration-ms="12869" started-at="2019-08-08T09:35:37Z" finished-at="2019-08-08T09:35:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="34155" started-at="2019-07-30T10:14:35Z" finished-at="2019-07-30T10:15:09Z">
+    <test name="Default test" duration-ms="12869" started-at="2019-08-08T09:35:37Z" finished-at="2019-08-08T09:35:50Z">
       <class name="com.spade.tescases.LoginTest">
-        <test-method status="PASS" signature="loginintotheApplication()[pri:1, instance:com.spade.tescases.LoginTest@224edc67]" name="loginintotheApplication" duration-ms="10025" started-at="2019-07-30T10:14:35Z" finished-at="2019-07-30T10:14:45Z">
+        <test-method status="PASS" signature="Readandwritefile()[pri:4, instance:com.spade.tescases.LoginTest@1bce4f0a]" name="Readandwritefile" duration-ms="12838" started-at="2019-08-08T09:35:37Z" finished-at="2019-08-08T09:35:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginintotheApplication -->
-        <test-method status="PASS" signature="verify_homepagetitle()[pri:2, instance:com.spade.tescases.LoginTest@224edc67]" name="verify_homepagetitle" duration-ms="31" started-at="2019-07-30T10:14:45Z" finished-at="2019-07-30T10:14:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_homepagetitle -->
-        <test-method status="PASS" signature="verify_Homepageurl()[pri:3, instance:com.spade.tescases.LoginTest@224edc67]" name="verify_Homepageurl" duration-ms="2038" started-at="2019-07-30T10:14:45Z" finished-at="2019-07-30T10:14:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_Homepageurl -->
-        <test-method status="PASS" signature="verify_registration()[pri:4, instance:com.spade.tescases.LoginTest@224edc67]" name="verify_registration" duration-ms="22023" started-at="2019-07-30T10:14:47Z" finished-at="2019-07-30T10:15:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_registration -->
+        </test-method> <!-- Readandwritefile -->
       </class> <!-- com.spade.tescases.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
